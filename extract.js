@@ -15,11 +15,10 @@ function processOneLine(line){
     let regex = /\b\w*@(?<domain>(?:\w*\.)+\w+\b)/g;
     
     for (const match of line.matchAll(regex)) {
-        let count = domains[match.groups.domain] || 0;
-        domains[match.groups.domain] = ++count;
+        domains[match.groups.domain] ||= 0;
+        domains[match.groups.domain]++;
     }
 }
-
 
 Object.entries(domains).sort(
     (left, right) => left[1] - right[1]
