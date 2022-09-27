@@ -1,6 +1,6 @@
 
 
-import fs  from 'fs'
+import fs  from 'fs';
 let text = fs.readFileSync("sample.txt", "utf-8")
 
 console.log( "read ", text.length);
